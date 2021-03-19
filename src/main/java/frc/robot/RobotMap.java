@@ -8,6 +8,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Ultrasonic;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 public class RobotMap {
     public static final Joystick driveJoystick = new Joystick(0);
@@ -29,4 +30,7 @@ public class RobotMap {
     
     public static final Ultrasonic ultrasonic = new Ultrasonic(1,2); //needs a home in the form of a port number
 
+    public static final TalonSRX shooterTopMotor = new TalonSRX(5);
+    public static final TalonSRX shooterBottomMotor = new TalonSRX(6);
+    
 }
