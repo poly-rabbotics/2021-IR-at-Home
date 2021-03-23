@@ -23,6 +23,40 @@ public static String controlState = "Normal";
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // CONVEYOR / INTAKE ----------------------------------------------------------------------------------------------------------------------
+    /*public static boolean getTestsIntake(){
+      return joystick.getRawButton(2);
+    }
+    */
+
+    public static boolean getReverseConveyor(){
+      return joystick.getRawButton(1);
+    }
+    public static boolean getToggleConveyorOverride(){
+      return joystick.getRawButton(8);
+    }
+    
+    public static boolean getToggleIntakeMotor(){
+      return joystick.getRawButton(3);
+    }
+    public static boolean getToggleArmMotor(){
+      return joystick.getRawButton(9);
+    }
+    public static boolean getToggleManArmMotor(){
+      return joystick.getRawButtonPressed(9);
+    }
+    public static boolean getAllowShooter(){
+      if(getToggleManShootOne() || getToggleManShootTwo() || getToggleManShootThree()){
+        return true;
+        }
+      else{return false;}
+    }
+
+    public static boolean getEject(){
+      return joystick.getRawButton(12);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    // SHOOTER ADJUST --------------------------------------------------------------------------------------------------------------------------------
    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static double getChangeTopShooter() {
