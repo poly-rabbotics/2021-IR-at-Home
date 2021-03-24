@@ -8,12 +8,22 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.AutoNav;
 import frc.robot.subsystems.AutonomousDrive;
+import frc.robot.subsystems.CameraServo;
+import frc.robot.subsystems.ConveyorBelt;
+import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.GalacticSearch;
+import frc.robot.subsystems.IntakeTest;
+import frc.robot.subsystems.LEDLights;
+import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.VisionLight;
 import frc.robot.Controls.MechanismsJoystick;
+import frc.robot.sensors.PressureTransducer;
 
 
 /**
@@ -32,6 +42,17 @@ public class Robot extends TimedRobot {
   public static AutonomousDrive AutoDrive;
   public static GalacticSearch galacticsearch;
   public static AutoNav autoNav;
+  public static Subsystem subsystems[];
+  public static Drive drive;
+  public static Shooter shooter;
+  public static CameraServo cameraServo;
+  public static ConveyorBelt conveyor;
+  public static SmartDashboardOutputs outputs;
+  public static IntakeTest intake;
+  public static VisionLight light;
+  public static PressureTransducer pressureTransducer;
+  public static Timer timer;
+  public static LEDLights led;
   
 
   /**
