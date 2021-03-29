@@ -22,6 +22,7 @@ import frc.robot.subsystems.IntakeTest;
 import frc.robot.subsystems.LEDLights;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.VisionLight;
+import io.github.pseudoresonance.pixy2api.Pixy2;
 import frc.robot.Controls.MechanismsJoystick;
 import frc.robot.sensors.PressureTransducer;
 
@@ -53,6 +54,8 @@ public class Robot extends TimedRobot {
   public static PressureTransducer pressureTransducer;
   public static Timer timer;
   public static LEDLights led;
+  public static Pixy2 pixycam;
+  
   
 
   /**
@@ -67,6 +70,8 @@ public class Robot extends TimedRobot {
     AutoDrive = new AutonomousDrive();
     galacticsearch = new GalacticSearch();
     autoNav = new AutoNav();
+    pixycam = Pixy2.createInstance(Pixy2.LinkType.SPI);
+    drive = new Drive();
   }
 
   /**
@@ -131,6 +136,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopInit() {
+    RobotMap.lightRelay.set(true);
+
   }
 
   /**
@@ -139,6 +146,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     AutoDrive.printState();
+    galacticsearch.run();
+    drive.run();
   }
 
   /**
