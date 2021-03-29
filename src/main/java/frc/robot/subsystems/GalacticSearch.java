@@ -29,7 +29,7 @@ public class GalacticSearch{
 private SpeedControllerGroup left,right;
 public DifferentialDrive drive;
 private Ultrasonic ultrasonic;
-public DigitalInput sensor; 
+public DigitalInput sensor, pixyCheck; 
 PWMVictorSPX lowerConveyor,upperConveyor;
 AnalogInput pixy;
 
@@ -62,6 +62,7 @@ sensor = RobotMap.intakeSensorOne;
 lowerConveyor = RobotMap.lowerConveyorMotor;
 upperConveyor = RobotMap.upperConveyorMotor;
 pixy = RobotMap.pixy;
+pixyCheck = RobotMap.pixyCheck;
 
 Turn = MechanismsJoystick.startTurn();
 coarseAngleFound = false;
@@ -123,6 +124,10 @@ public static double getBiggestBlock() {
 public void modeOne(){
     
       //  blockCount = pixy.getCCC().getBlocks(false, Pixy2CCC.CCC_SIG1, 25);
+      if(!pixyCheck.get() ){
+        SmartDashboard.putNumber("voltage", pixy.getVoltage());
+        
+    }
         if (blockCount >= 1) { 
             ballFound = true;
          }
