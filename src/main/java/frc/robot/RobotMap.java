@@ -40,12 +40,14 @@ public class RobotMap {
     public static final CANEncoder leftBackEncoder = new CANEncoder(leftBack, EncoderType.kQuadrature, 42);
     public static final CANEncoder rightBackEncoder = new CANEncoder(rightBack, EncoderType.kQuadrature, 42);
 
-    public static final Servo pixyServo = new Servo(3); //needs actual port number
+    public static final Servo pixyServo = new Servo(8); //needs actual port number
 
     public static final DigitalOutput lightRelay = new DigitalOutput(9);
+
+    public static final AnalogInput pixy = new AnalogInput(2);
     
-    public static final Ultrasonic ultrasonic = new Ultrasonic(1,2); //needs a home in the form of a port number
-    public static final Servo camera = new Servo(8);
+    public static final Ultrasonic ultrasonic = new Ultrasonic(4,5); //needs a home in the form of a port number
+    public static final Servo camera = new Servo(7);
     public static final DigitalInput intakeSensorOne = new DigitalInput(2);
     public static final DigitalInput shooterSensor = new DigitalInput(3);
     public static final AnalogInput pressureTransducer = new AnalogInput(3);

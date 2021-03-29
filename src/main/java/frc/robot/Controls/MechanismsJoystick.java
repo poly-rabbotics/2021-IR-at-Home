@@ -13,13 +13,16 @@ public static String controlState = "Normal";
     // Auto Modes-----------------------------------------------------------------------------------------------------------------------------------
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static boolean startGalacticSearch(){
-    return  joystick.getRawButton(4); //needs to be given an actual number
+    return  joystick.getRawButton(1); //needs to be given an actual number
       }
+    public static boolean startTurn(){
+      return joystick.getRawButton(5);
+    }
     public static boolean autoNavOne(){
-      return joystick.getRawButton(3); //needs port number
+      return joystick.getRawButton(2); //needs port number
     }
     public static boolean autoNavTwo(){
-      return joystick.getRawButton(5); //port #
+      return joystick.getRawButton(3); //port #
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
