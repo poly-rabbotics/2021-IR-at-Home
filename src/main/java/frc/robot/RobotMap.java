@@ -46,11 +46,13 @@ public class RobotMap {
 
     public static final AnalogInput pixy = new AnalogInput(2);
     
-    public static final Ultrasonic ultrasonic = new Ultrasonic(4,5); //needs a home in the form of a port number
+    public static final AnalogInput ultrasonic = new AnalogInput(0); 
     public static final Servo camera = new Servo(7);
     public static final DigitalInput intakeSensorOne = new DigitalInput(2);
     public static final DigitalInput shooterSensor = new DigitalInput(3);
     public static final AnalogInput pressureTransducer = new AnalogInput(3);
+
+    public static final DigitalInput pixyCheck = new DigitalInput(9);   
 
     public static final String shooterCameraName = "Microsoft LifeCam HD-3000";
     public static final Relay visionLightRelay = new Relay(0);

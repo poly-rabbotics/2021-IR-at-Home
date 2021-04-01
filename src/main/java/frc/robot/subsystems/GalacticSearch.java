@@ -125,6 +125,7 @@ public void modeOne(){
     
       //  blockCount = pixy.getCCC().getBlocks(false, Pixy2CCC.CCC_SIG1, 25);
       if(!pixyCheck.get() ){
+          pixy.getAverageVoltage(); //left edge has a voltage closer to 0, 3.3v for right, and 1.65v for 
         SmartDashboard.putNumber("voltage", pixy.getVoltage());
         
     }
