@@ -36,6 +36,12 @@ public Limelight(){
 
     isTracking = false;
 }
+public double getX() {
+    return x;
+}
+public double getY() {
+    return y;
+}
 public boolean getTargetFound() {
     NetworkTableEntry tv = table.getEntry("tv");
     double v = tv.getDouble(0);

@@ -37,27 +37,26 @@ public class AutonomousDrive {
     public static void DriveByDistance(double inchesToTravel) {
         double setpoint = inchesToTravel * encoderCountsPerInch + leftFront.getPosition();
         // only one encoder needs to be watched for driving forward
-        if (leftFront.getPosition() < setpoint) {
+        while (leftFront.getPosition() < setpoint) {
             drive.tankDrive(.3, .3);
             driveDone = false;
-        } else {
-            //setpoint reached, stop motors
-            drive.tankDrive(0, 0);
-            driveDone = true;
         }
-        
+        drive.tankDrive(0, 0);
+        driveDone = true;  
     }
     
     public static void Turn(double degrees) {
         double setpointLeft = degrees * (encoderCountsPer360/360) + leftFront.getPosition();
-        if (leftFront.getPosition()<setpointLeft){
-            drive.tankDrive(0.3, -0.3);
+        while (leftFront.getPosition()<setpointLeft){
+            if (degrees<0) {
+                drive.tankDrive(-0.3,0.3);
+            }
+            else {
+                drive.tankDrive(0.3,-0.3);
+            }
             driveDone = false;
-        } else {
-            drive.tankDrive(0,0);
-            driveDone = true;
         }
-       
+        drive.tankDrive(0,0);
+        driveDone = true;
     }
-
 }
