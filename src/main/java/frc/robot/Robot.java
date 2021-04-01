@@ -20,6 +20,7 @@ import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.GalacticSearch;
 import frc.robot.subsystems.IntakeTest;
 import frc.robot.subsystems.LEDLights;
+import frc.robot.subsystems.LIDAR;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.VisionLight;
 import io.github.pseudoresonance.pixy2api.Pixy2;
@@ -55,6 +56,7 @@ public class Robot extends TimedRobot {
   public static Timer timer;
   public static LEDLights led;
   public static Pixy2 pixycam;
+  public static LIDAR lidar;
   
   
 
@@ -72,6 +74,8 @@ public class Robot extends TimedRobot {
     autoNav = new AutoNav();
     pixycam = Pixy2.createInstance(Pixy2.LinkType.SPI);
     drive = new Drive();
+    lidar = new LIDAR();
+
   }
 
   /**
@@ -112,6 +116,7 @@ public class Robot extends TimedRobot {
     if(MechanismsJoystick.autoNavOne() && MechanismsJoystick.autoNavTwo()){
       autoNav.slalom();
     }
+    lidar.start();
 
   }
 
