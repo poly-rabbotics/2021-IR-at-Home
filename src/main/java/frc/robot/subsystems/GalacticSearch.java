@@ -28,7 +28,7 @@ public class GalacticSearch{
 
 private SpeedControllerGroup left,right;
 public DifferentialDrive drive;
-private Ultrasonic ultrasonic;
+private AnalogInput ultrasonic;
 public DigitalInput sensor, pixyCheck; 
 PWMVictorSPX lowerConveyor,upperConveyor;
 AnalogInput pixy;
@@ -125,8 +125,10 @@ public void modeOne(){
     
       //  blockCount = pixy.getCCC().getBlocks(false, Pixy2CCC.CCC_SIG1, 25);
       if(!pixyCheck.get() ){
-          pixy.getAverageVoltage(); //left edge has a voltage closer to 0, 3.3v for right, and 1.65v for 
-        SmartDashboard.putNumber("voltage", pixy.getVoltage());
+        //left edge has a voltage closer to 0, 3.3v for right, and 1.65v for 
+          offsetAngle =  pixy.getAverageVoltage()/60 - 1.65/0.55;
+          SmartDashboard.putNumber("offsetAngle", offsetAngle);
+       // SmartDashboard.putNumber("voltage", pixy.getVoltage());
         
     }
         if (blockCount >= 1) { 
@@ -146,10 +148,10 @@ public void modeOne(){
         if (sweepDirection == 0) {
             servo.setAngle(servo.getAngle()-0.25);
         }
-        if (servo.getAngle()>90) {
+        if (servo.getAngle()>170) {
             sweepDirection = 0;
         }
-        if (servo.getAngle()<= 0) {
+        if (servo.getAngle()<= 90) {
             sweepDirection = 1;
         }
         
@@ -277,6 +279,7 @@ if (!sensor.get()){
 
 
 //mode six drives to the end zone
+/*
 public void modeSix(){
 //robot needs to turn towards the end zone 
 distance = ultrasonic.getRangeInches();
@@ -286,7 +289,7 @@ left.stopMotor();
 right.stopMotor();
 }
 }
-
+*/
 
 public void run(){
 
@@ -343,7 +346,7 @@ if( (finishedDriving && !ballDetected ) || ( ballDetected && ballCount < 3) ){
 
 else if(count >= 3){
     done = true;
-    modeSix();
+   // modeSix();
 }
 
 
